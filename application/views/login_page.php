@@ -40,15 +40,15 @@
                   </div>
                   <form action="<?=base_url('Auth/login')?>" method="post"  class=" user needs-validation" novalidate>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="nama" placeholder="Nama/Nama Pengguna" required>
+                      <input type="text" class="form-control form-control-user" name="nama" placeholder="NISN/Nama Pengguna" required>
                       <div class="invalid-feedback">
-                        <p class="pl-2 text-capitalize">Nama / Nama Pengguna tidak boleh kosong</p>
+                        <p class="pl-2 text-capitalize">NISN / Nama Pengguna tidak boleh kosong</p>
                       </div>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="password" placeholder="Kata Sandi" required>
+                      <input type="password" class="form-control form-control-user" name="password" placeholder="NIS/Kata Sandi" required>
                       <div class="invalid-feedback">
-                        <p class="pl-2 text-capitalize">Kata Sandi tidak boleh kosong</p>
+                        <p class="pl-2 text-capitalize">NIS / Kata Sandi tidak boleh kosong</p>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block" >Login</button>

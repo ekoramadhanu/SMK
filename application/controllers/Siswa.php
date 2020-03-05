@@ -43,7 +43,6 @@ class Siswa extends CI_Controller {
 			'nama' => $nama,
 			'alamat' => $alamat,
 			'no_telp' => $nomorTelepon,
-			'password' => 123456,
 			'id_kelas' => $kelas,
 			'id_spp' => $spp,
 		);

@@ -30,7 +30,7 @@ class ModelSiswa extends CI_Model{
         return $this->db->update('siswa',$data,['nisn'=>$id]);
     }
     public function login($username,$password){
-		$query = "select * from siswa where nama = '".$username."' and password = '".$password."'";
+		$query = "select * from siswa where nisn = '".$username."' and nis = '".$password."'";
         return  $this->db->query($query)->result(); 
 	}
 }

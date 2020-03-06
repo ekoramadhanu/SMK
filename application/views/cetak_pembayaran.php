@@ -21,32 +21,33 @@
 </head>
 
 <body id="page-top">
-    <h2 class="text-center mb-3">Laporan Pembayaran Siswa Tahun <?=$bulan?></h2>
-    <table class="table">
-    <thead>
-        <tr>
-        <th scope="col">Id Pembayaran</th>
-        <th scope="col">Tanggal Bayar</th>
-        <th scope="col">Nama</th>
-        <th scope="col">NISN</th>
-        <th scope="col">NIS</th>
-        <th scope="col">Kelas</th>
-        <th scope="col">Keterangan</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($rekap as $item):?>
-             <tr>
-                <td><?= $item->id_pembayaran;?></td>
-                <td><?= $item->tgl_bayar?></td>
-                <td><?= $item->nama?></td>
-                <td><?= $item->nisn?></td>
-                <td><?= $item->nis?></td>
-                <td><?= $item->nama_kelas?></td>
-                <td>Lunas</td>
-             </tr>
-        <?php endforeach;?>
-    </tbody>
+    <h5 class=" mb-3">Bukti Pembayaran</h5>
+    <table>
+      <tr>
+        <td>NISN</td>
+        <td>:</td>
+        <td><?= $siswa[0]->nisn?></td>
+      </tr>
+      <tr>
+        <td>Nama</td>
+        <td>:</td>
+        <td><?= $siswa[0]->nama?></td>
+      </tr>
+      <tr>
+        <td>kelas</td>
+        <td>:</td>
+        <td><?= $siswa[0]->nama_kelas?></td>
+      </tr>
+      <tr>
+        <td>Nominal</td>
+        <td>:</td>
+        <td><?= $siswa[0]->nominal?></td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>:</td>
+        <td>Lunas</td>
+      </tr>
     </table>
 
   <!-- Bootstrap core JavaScript-->

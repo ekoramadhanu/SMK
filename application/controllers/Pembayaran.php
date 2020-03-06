@@ -42,9 +42,10 @@ class Pembayaran extends CI_Controller {
 			'jumlah_bayar' => $siswa[0]->nominal,
 			'id_spp' => $siswa[0]->id_spp,
 		);
-		$result = $this->ModelPembayaran->createPembayaran($data);
-		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Dibuat</div>');     
-		redirect('Pembayaran');
+		$data = $this->ModelPembayaran->createPembayaran($data);
+		$result['siswa'] =$this->ModelSiswa->findSiswaByNISN($nisn);
+		$this->load->view('cetak_pembayaran',$result); 
+
 	}
 
 	public function cetak(){

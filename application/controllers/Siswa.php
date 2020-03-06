@@ -10,6 +10,7 @@ class Siswa extends CI_Controller {
 		$this->load->helper(array('url'));	
 		$this->load->model("ModelSiswa");	
 		$this->load->model("ModelKelas");	
+		$this->load->model("ModelPembayaran");	
 		$this->load->model("ModelSPP");	
 		if(!$this->session->userdata('level')){
             redirect('Auth');
@@ -68,8 +69,17 @@ class Siswa extends CI_Controller {
 		redirect('Siswa');
 	}
 	public function hapusDataSiswa($id){
-		$result = $this->ModelSiswa->deleteSiswaById($id);
-		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+
+		$siswa = $this->ModelSiswa->findSiswaByNISN($id);
+		$this->ModelPembayaran->updatePembayaranByIdSPP($siswa[0]->id_spp,['id_spp'=>null]);
+		$pembayaran =$this->ModelPembayaran->getPembayaranBYNISN($id);
+		if(count($pembayaran) > 0){
+			$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa dihapus silahkan hapus terlebih dahulu data transaksi</div>');     
+		} else {
+			$result = $this->ModelSiswa->deleteSiswaById($id);
+			$this->ModelPembayaran->updatePembayaranByIdSPP(null,['id_spp'=>$siswa[0]->id_spp]);
+			$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+		}
 		redirect('Siswa');
 	}
 

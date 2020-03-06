@@ -66,7 +66,12 @@ class Kelas extends CI_Controller {
 	}
 	public function hapusDataKelas($id){
 		$result = $this->ModelKelas->deleteKelasById($id);
-		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+		if($result['code'] != 0){
+			$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa dihapus
+			silahkan hapus terlebih dahulu data siswa</div>');     
+		} else{
+			$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+		}
 		redirect('Kelas');
 	}
 }

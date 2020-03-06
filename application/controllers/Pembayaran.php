@@ -48,8 +48,46 @@ class Pembayaran extends CI_Controller {
 	}
 
 	public function cetak(){
-		$result['tahun'] = $this->input->post('tahun');
-		$result['rekap'] = $this->ModelPembayaran->findPembayaranByTahun($result['tahun']);
+		$bulan = $this->input->post('bulan');
+		$result['rekap'] = $this->ModelPembayaran->findPembayaranByBulan($bulan);
+		switch ($bulan) {
+			case "01":
+				$result['bulan'] = 'Januari';
+				break;
+			case "02":
+				$result['bulan'] = 'Februari';
+				break;
+			case "03":
+				$result['bulan'] = 'Maret';
+				break;
+			case "04":
+				$result['bulan'] = 'April';
+				break;
+			case "05":
+				$result['bulan'] = 'Mei';
+				break;
+			case "06":
+				$result['bulan'] = 'Juni';
+				break;
+			case "07":
+				$result['bulan'] = 'Juli';
+				break;
+			case "08":
+				$result['bulan'] = 'Agustus';
+				break;
+			case "09":
+				$result['bulan'] = 'September';
+				break;
+			case "10":
+				$result['bulan'] = 'Oktober';
+				break;
+			case "11":
+				$result['bulan'] = 'November';
+				break;
+			case "12":
+				$result['bulan'] = 'Desember';
+				break;
+		}
 		$this->load->view('laporan',$result);  
 	}
 }

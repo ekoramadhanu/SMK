@@ -243,10 +243,24 @@
         <div class="modal-body">
         <form method="post" action="<?=base_url('Pembayaran/cetak')?>" class="needs-validation" novalidate>
           <div class="form-group">
-            <label for="exampleInputEmail1">Tahun</label>
-            <input type="text" class="form-control form-control-user" id="tahun" name="tahun" required style="color:black" placeholder="Tahun">
+            <label for="exampleInputEmail1">Bulan</label>
+            <select class="form-control custom-select" name="bulan" required>
+              <option disabled selected value="">Pilih Bulan</option>
+              <option value="01">Januari</option>
+              <option value="02">Februari</option>
+              <option value="03">Maret</option>
+              <option value="04">April</option>
+              <option value="05">Mei</option>
+              <option value="06">Juni</option>
+              <option value="07">juli</option>
+              <option value="08">Agustus</option>
+              <option value="09">September</option>
+              <option value="10">Oktober</option>
+              <option value="11">November</option>
+              <option value="12">Desember</option>
+            </select>
             <div class="invalid-feedback">
-              <p class="pl-2 text-capitalize">tahun tidak boleh kosong</p>
+              <p class="pl-2 text-capitalize">Bulan tidak boleh kosong</p>
             </div>
           </div>
           <div class="modal-footer">

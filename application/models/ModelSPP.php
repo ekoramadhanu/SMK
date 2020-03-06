@@ -14,7 +14,13 @@ class ModelSPP extends CI_Model{
         return  $this->db->query($query)->result(); 
     }
     public function deleteSPPById($id){
-        return $this->db->delete('spp',['id_spp'=>$id]);
+        $check = "DELETE FROM spp where id_spp =".$id;
+        if ( ! $this->db->simple_query($check)){
+             return $error = $this->db->error();
+        } else {
+            $this->db->delete('spp',['id_spp'=>$id]);
+            return $error = $this->db->error();
+        }
     }
     public function updateSPPById($id,$data){
         return $this->db->update('spp',$data,['id_spp'=>$id]);

@@ -57,7 +57,12 @@ class SPP extends CI_Controller {
 	}
 	public function hapusDataSPP($id){
 		$result = $this->ModelSPP->deleteSPPById($id);
-		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+		if($result['code'] != 0){
+			$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa dihapus 
+			silahkan hapus data siswa terlebih dahulu</div>');     
+		} else {
+			$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');     
+		}
 		redirect('SPP');
 	}
 }

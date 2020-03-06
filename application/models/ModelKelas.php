@@ -10,7 +10,13 @@ class ModelKelas extends CI_Model{
         return  $this->db->query($query)->result(); 
     }
     public function deleteKelasById($id){
-        return $this->db->delete('kelas',['id_kelas'=>$id]);
+        $check = "DELETE FROM kelas where id_kelas =".$id;
+        if ( ! $this->db->simple_query($check)){
+             return $error = $this->db->error();
+        } else {
+            $this->db->delete('kelas',['id_kelas'=>$id]);
+            return $error = $this->db->error();
+        }
     }
     public function updateKelasById($id,$data){
         return $this->db->update('kelas',$data,['id_kelas'=>$id]);

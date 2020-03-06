@@ -21,25 +21,29 @@
 </head>
 
 <body id="page-top">
-    <h2 class="text-center mb-3">Laporan Pembayaran Siswa Tahun <?=$tahun?></h2>
+    <h2 class="text-center mb-3">Laporan Pembayaran Siswa Tahun <?=$bulan?></h2>
     <table class="table">
     <thead>
         <tr>
-        <th scope="col">Id Pembayraran</th>
-        <th scope="col">Nama Petugas</th>
-        <th scope="col">NISN</th>
+        <th scope="col">Id Pembayaran</th>
         <th scope="col">Tanggal Bayar</th>
-        <th scope="col">Nominal</th>
+        <th scope="col">Nama</th>
+        <th scope="col">NISN</th>
+        <th scope="col">NIS</th>
+        <th scope="col">Kelas</th>
+        <th scope="col">Keterangan</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($rekap as $item):?>
              <tr>
                 <td><?= $item->id_pembayaran;?></td>
-                <td><?= $item->nama_petugas?></td>
-                <td><?= $item->nisn?></td>
                 <td><?= $item->tgl_bayar?></td>
-                <td>Rp. <?= $item->jumlah_bayar?></td>
+                <td><?= $item->nama?></td>
+                <td><?= $item->nisn?></td>
+                <td><?= $item->nis?></td>
+                <td><?= $item->nama_kelas?></td>
+                <td>Lunas</td>
              </tr>
         <?php endforeach;?>
     </tbody>
@@ -52,9 +56,9 @@
   <script src="<?= base_url('assets/sb2admin/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/sb2admin/')?>js/sb-admin-2.min.js"></script>
-  <script>
+  <!-- <script>
     print();
-  </script>
+  </script> -->
 </body>
 
 </html>
